@@ -41,6 +41,10 @@ services:
     build:
       context: ./nginx/prod
     container_name: nginx
+    volumes:
+      - /etc/ssl:/etc/ssl
+      - /etc/letsencrypt:/etc/letsencrypt
+      - /data/letsencrypt:/data/letsencrypt
     depends_on:
       - netstats
       - publicnode
