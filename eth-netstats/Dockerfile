@@ -8,7 +8,10 @@ RUN git clone https://github.com/poanetwork/eth-netstats
 # install dependancies
 WORKDIR /eth-netstats
 RUN npm install
-RUN npm install -g grunt-cli
+
+RUN npm config set unsafe-perm true \
+  && npm install -g grunt-cli \
+  && npm config set unsafe-perm false
 RUN grunt
 
 # open port 3000
