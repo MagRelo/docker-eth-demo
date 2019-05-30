@@ -4,12 +4,15 @@ FROM ethereum/client-go:v1.8.14
 # install git bash nodejs nodejs-npm perl
 RUN apk add --update git bash nodejs nodejs-npm perl
 
+
 # install eth-net-intelligence-api
 RUN cd /root &&\
   git clone https://github.com/cubedro/eth-net-intelligence-api &&\
   cd eth-net-intelligence-api &&\
+  npm config set unsafe-perm true &&\
   npm install &&\
-  npm install -g pm2
+  npm install -g pm2 &&\
+  npm config set unsafe-perm false
 
 # add config file for eth-net-intelligence-api
 ADD app.json /root/eth-net-intelligence-api/app.json
