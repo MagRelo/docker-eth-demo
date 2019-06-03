@@ -3,3 +3,7 @@ services:
   nginx:
     build:
       context: ./nginx/dev
+    volumes:
+      - /:/etc/ssl
+      - /:/etc/letsencrypt
+      - /:/data/letsencrypt
