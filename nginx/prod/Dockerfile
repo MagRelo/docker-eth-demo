@@ -8,3 +8,5 @@ ADD ./.htpasswd /etc/nginx/.htpasswd
 
 # Start NGINX
 CMD ["nginx", "-g", "daemon off;"]
+
+
